@@ -2,8 +2,8 @@
 
 # 실습: c() 함수를 이용한 벡터 객체 생성
 c(1:20)
-1:20
-c(1, 2, 3, 4, 5)
+1:20 #1포함 20포함 
+c(1, 2, 3, 4, 5) #1,2,3,4,5 컬럼을 만듦
 
 # 실습: seq() 함수를 이용한 벡터 객체 생성
 seq(1, 10, 2)
@@ -34,6 +34,7 @@ v4
 v1; mode(v1); class(v1)
 v2; mode(v2); class(v2)
 v3; mode(v3); class(v3)
+v4; mode(v4); class(v4)
 
 # 실습: 벡터 객체의 값에 칼럼명 지정
 age <- c(30, 35, 40)
@@ -72,7 +73,10 @@ str(Severity_Counts)
 # 실습: RSADBE 패키지에서 제공디는 데이터 셋 보기 
 Severity_Counts
 
-
+## R에 벡터 특징
+## 컬럼 중심
+## 혼합 자료형 => 문자열
+## 슬라이싱 가능, 철자 가능
 
 
 # 실습: 벡터를 이용한 행렬 객체 생성
@@ -113,7 +117,7 @@ m3 <- matrix(10:19, 2)
 m4 <- matrix(10:20, 2)
 m3  
 mode(m3); class(m3)  
-  
+
 # 실습: 첨자를 사용하여 행렬 객체에 접근하기 
 m3[1, ]
 m3[ , 5]
@@ -133,6 +137,7 @@ ncol(x)
 apply(x, 1, max)
 apply(x, 1, min)
 apply(x, 2, mean)
+help(apply)
 
 # 실습: 사용자 정의 함수 적용하기 
 f <- function(x) {
@@ -194,7 +199,7 @@ memp
 
 # 실습: 텍스트 파일을 이용한 데이터프레임 객체 생성하기 
 getwd()
-txtemp <- read.table('emp.txt', header = 1, sep = "")
+txtemp <- read.table('data/emp.txt', header = 1, sep = "", fileEncoding = "euc-kr")
 txtemp
 
 
@@ -203,7 +208,7 @@ csvtemp <- read.csv('emp.csv', header = T)
 csvtemp
 help(read.csv)
 name <- c("사번", "이름", "급여")
-read.csv('emp2.csv', header = F, col.names = name)
+read.csv('data/emp2.csv', header = F, col.names = name, fileEncoding = "euc-kr")
 
 # 실습: 데이터프레임 만들기 
 df <- data.frame(x = c(1:5), y = seq(2, 10, 2), z = c('a', 'b', 'c', 'd', 'e'))
